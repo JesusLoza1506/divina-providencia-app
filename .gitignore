@@ -1,0 +1,31 @@
+# Dependencias Node.js
+node_modules/
+.pnpm-store/
+
+# Builds / Outputs
+dist/
+.next/
+out/
+build/
+
+# Entorno virtual Python
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Archivos de entorno (Variables secretas)
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# Archivos de SO y editores
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.log
