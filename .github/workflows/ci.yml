@@ -1,0 +1,31 @@
+name: CI - Calidad de Código Divina Providencia
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-validate:
+    name: Validaciones de Estructura y Sintaxis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validar archivo docker-compose
+        run: |
+          docker compose config
+
+      - name: Validar presencia de archivos clave
+        run: |
+          test -f .gitignore || (echo "Falta .gitignore" && exit 1)
+          test -f .env.example || (echo "Falta .env.example" && exit 1)
+          echo "Estructura base validada correctamente."
